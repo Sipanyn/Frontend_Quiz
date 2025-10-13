@@ -1,0 +1,11 @@
+.container {
+  color: var(--dark-text);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .listItem {
+    display: flex;
+    justify-content: center;
+  }
+}

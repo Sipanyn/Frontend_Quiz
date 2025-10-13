@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.3s ease-in;
+  gap: 5px;
+  justify-content: end;
+
+  .sun {
+    height: 30px;
+    width: 30px;
+  }
+  .moon {
+    height: 30px;
+    width: 30px;
+  }
+}
+.dark {
+  color: var(--dark-text);
+}
+.light {
+  color: var(--light-text);
+}

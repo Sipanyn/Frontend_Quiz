@@ -1,0 +1,21 @@
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .title {
+    color: gray;
+    font-size: 48px;
+  }
+  .content {
+    color: gray;
+    margin-block: 35px;
+    font-size: small;
+  }
+}
+:global(.dark) .container .title strong {
+  color: var(--dark-text);
+}
+:global(.light) .container .title strong {
+  color: var(--light-text);
+}

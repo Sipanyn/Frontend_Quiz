@@ -1,0 +1,14 @@
+.container {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: min(5vw, 1rem);
+
+  .header {
+    margin-bottom: 20px;
+  }
+  .main {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}

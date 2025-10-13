@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  inline-size: min(400px, 100%);
+  margin: auto;
+  .title {
+    color: gray;
+    font-size: xx-large;
+    strong {
+      color: gainsboro;
+    }
+  }
+  .score_board {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    .total {
+      color: gray;
+    }
+    strong {
+      color: white;
+      font-size: 64px;
+    }
+  }
+}
+:global(.dark) .score_board {
+  background-color: var(--dark-bg-box);
+}
+:global(.light) .score_board {
+  background-color: var(--light-bg-box);
+}

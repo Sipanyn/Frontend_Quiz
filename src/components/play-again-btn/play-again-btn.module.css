@@ -1,0 +1,17 @@
+.btn {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  height: 56px;
+  cursor: pointer;
+}
+:global(.dark) .btn {
+  background-color: purple;
+  color: var(--dark-text);
+}
+:global(.light) .btn {
+  background-color: var(--light-bg-box);
+  color: var(--light-text);
+}

@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --dark-bg: #2a3b4c;
+  --dark-text: white;
+  --dark-bg-box: rgb(29, 47, 65);
+  --light-bg-box: #e5e6e7;
+  --light-bg: #f2f3f3;
+  --light-text: #2a3a4c;
+}
+.dark {
+  background-color: var(--dark-bg);
+}
+.light {
+  background-color: var(--light-bg);
+}

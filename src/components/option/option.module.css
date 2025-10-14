@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  gap: 15px;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin: 1.5px;
+  border: 1.5px solid transparent;
+  inline-size: min(400px, 100%);
+  &:hover {
+    border-color: rgb(104, 103, 103);
+  }
+
+  .alphabet_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: ghostwhite;
+    color: var(--light-text);
+  }
+}
+.dark {
+  background-color: var(--dark-bg-box);
+  color: var(--dark-text);
+}
+.light {
+  background-color: gainsboro;
+  color: var(--light-text);
+}

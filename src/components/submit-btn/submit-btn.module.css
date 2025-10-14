@@ -1,0 +1,21 @@
+.btn {
+  grid-column-start: 2;
+  inline-size: min(400px, 100%);
+  margin: auto;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bolder;
+  outline: none;
+  border: none;
+  height: 56px;
+  border-radius: 6px;
+  transition: all 0.3 ease-in;
+}
+.dark {
+  color: var(--dark-text);
+  background-color: purple;
+}
+.light {
+  color: var(--light-text);
+  background-color: gainsboro;
+}

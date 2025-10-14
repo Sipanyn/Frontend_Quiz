@@ -1,0 +1,11 @@
+.ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  list-style: none;
+}
+.li {
+  display: flex;
+  justify-content: center;
+}

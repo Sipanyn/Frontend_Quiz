@@ -12,12 +12,19 @@ const Subject = ({ color, bgColor, icon, title }) => {
           theme === "dark" ? styles.dark : styles.light
         }`}
       >
-        <svg
+        <div
+          className={styles.svg_container}
+          style={{ color: color, backgroundColor: bgColor }}
+          dangerouslySetInnerHTML={{ __html: icon }}
+        />
+
+        {/* <svg
           className={styles.svg_container}
           style={{ color: `${color}`, backgroundColor: `${bgColor}` }}
         >
-          <use href={`/sprite.svg#${icon}`} />
-        </svg>
+          <use href={icon} />
+        </svg> */}
+
         <strong className={styles.content}>{title}</strong>
       </div>
     </div>

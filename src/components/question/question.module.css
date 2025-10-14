@@ -1,0 +1,9 @@
+.question {
+  transition: all 0.3s ease-in;
+}
+.dark {
+  color: var(--dark-text);
+}
+.light {
+  color: var(--light-text);
+}

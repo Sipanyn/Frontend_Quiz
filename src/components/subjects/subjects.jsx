@@ -1,44 +1,29 @@
+import { useContext } from "react";
 import Subject from "../subject/subject";
 import styles from "./subjects.module.css";
+import { SubjectContext } from "../../context/SubjectContext";
 
 const Subjects = () => {
+  const { subjects, selectSubjectHandler } = useContext(SubjectContext);
+
   return (
     <ul className={styles.container}>
-      <li className={styles.listItem}>
-        <Subject
-          title={"HTML"}
-          icon={"html_icon"}
-          color={"orange"}
-          bgColor={"rgba(239, 214, 167, 1)"}
-        />
-      </li>
-      <li className={styles.listItem}>
-        {" "}
-        <Subject
-          title={"CSS"}
-          icon={"css_icon"}
-          color={"green"}
-          bgColor={"rgb(218, 249, 227)"}
-        />
-      </li>
-      <li className={styles.listItem}>
-        {" "}
-        <Subject
-          title={"Javascript"}
-          icon={"js_icon"}
-          color={"blue"}
-          bgColor={"rgba(190, 194, 240, 1)"}
-        />
-      </li>
-      <li className={styles.listItem}>
-        {" "}
-        <Subject
-          title={"Accessibility"}
-          icon={"accessibility_icon"}
-          color={"purple"}
-          bgColor={"rgba(249, 216, 246, 1)"}
-        />
-      </li>
+      {subjects.map((subject, index) => {
+        return (
+          <li
+            onClick={() => selectSubjectHandler(index)}
+            key={subject.id}
+            className={styles.listItem}
+          >
+            <Subject
+              title={subject.title}
+              icon={subject.icon}
+              color={subject.color}
+              bgColor={subject.bgColor}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 };

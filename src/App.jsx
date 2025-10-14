@@ -6,6 +6,7 @@ import HomePage from "./pages/home-page/home-page";
 import QuestionsPage from "./pages/questions-page/questions-page";
 import ResultPage from "./pages/result-page/result-page";
 import { useEffect, useState } from "react";
+import { SubjectContext } from "./context/SubjectContext";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -23,16 +24,30 @@ function App() {
       document.body.classList.add("light");
     }
   }
+  // subject context
+  const [subjects, setSubjects] = useState([]);
+  const [selectedSubject, setSelectedSubject] = useState(null);
+  useEffect(() => {
+    fetch(`https://frontend-quiz-mock-api.vercel.app/subjects`)
+      .then((response) => response.json())
+      .then((json) => setSubjects(json));
+  }, []);
+  function selectSubjectHandler(index) {
+    setSelectedSubject(index);
+  }
+
   return (
-    <ThemeContext value={{ theme, changeTheme }}>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="questions" element={<QuestionsPage />} />
-          <Route path="result" element={<ResultPage />} />
-        </Route>
-      </Routes>
-    </ThemeContext>
+    <SubjectContext value={{ subjects, selectedSubject, selectSubjectHandler }}>
+      <ThemeContext value={{ theme, changeTheme }}>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="questions" element={<QuestionsPage />} />
+            <Route path="result" element={<ResultPage />} />
+          </Route>
+        </Routes>
+      </ThemeContext>
+    </SubjectContext>
   );
 }
 

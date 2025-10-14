@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-inline-end: 100px;
+  margin-bottom: 50px;
+  gap: 60px;
+}
+
+@media (max-width: 730px) {
+  .container {
+    gap: 50px;
+    padding-inline-end: 0px;
+  }
+}

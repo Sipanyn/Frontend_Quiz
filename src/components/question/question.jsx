@@ -5,7 +5,8 @@ import { SubjectContext } from "../../context/SubjectContext";
 
 const Question = () => {
   const { theme } = useContext(ThemeContext);
-  const { subjects, selectedSubject } = useContext(SubjectContext);
+  const { subjects, selectedSubject, currentQuestion } =
+    useContext(SubjectContext);
   console.log(subjects[selectedSubject]);
   return (
     <p
@@ -13,7 +14,7 @@ const Question = () => {
         theme === "dark" ? styles.dark : styles.light
       }`}
     >
-      {subjects[selectedSubject].info[0].question}
+      {subjects[selectedSubject]?.info[currentQuestion]?.question}
     </p>
   );
 };

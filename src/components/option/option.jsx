@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import styles from "./option.module.css";
 import { ThemeContext } from "styled-components";
+import { SubjectContext } from "../../context/SubjectContext";
 
 const Option = ({ title, index }) => {
   const { theme } = useContext(ThemeContext);
+  const { SetSelectedOptionHandler } = useContext(SubjectContext);
   return (
     <div
+      onClick={() => SetSelectedOptionHandler(index)}
       className={`${styles.container} ${
         theme === "dark" ? styles.dark : styles.light
       }`}

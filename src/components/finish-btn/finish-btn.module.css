@@ -29,3 +29,8 @@
   background-color: var(--light-bg-box);
   color: var(--light-text);
 }
+@media (max-width: 733px) {
+  .btn {
+    grid-column-start: 1;
+  }
+}

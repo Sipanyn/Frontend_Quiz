@@ -37,3 +37,15 @@
   background-color: gainsboro;
   color: var(--light-text);
 }
+.selected {
+  border-color: rgb(104, 103, 103);
+}
+.incorrect {
+  border-color: red;
+}
+.correct {
+  border-color: green;
+}
+.close {
+  pointer-events: none;
+}

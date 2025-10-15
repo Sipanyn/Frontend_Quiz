@@ -12,6 +12,7 @@ import {
   getPointLocal,
   getSelectedSubjectLocal,
 } from "./utils/localStorage";
+import Subject from "./components/subject/subject";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -37,6 +38,7 @@ function App() {
   });
   const [selectedOption, setSelectedOoption] = useState(null);
   const [result, setResult] = useState(null);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(() => {
     const item = getCurrentQuestionLocal("currentQuestion");
     return Number(item) || Number(0);
@@ -63,21 +65,23 @@ function App() {
       selectedOption === subjects[selectedSubject].info[currentQuestion].answer
     ) {
       setResult(true);
+      setCorrectAnswer(subjects[selectedSubject].info[currentQuestion].answer);
       setPoint((pre) => pre + 1);
-
-      setSelectedOoption(null);
     } else {
       setResult(false);
-      setSelectedOoption(null);
+      setCorrectAnswer(subjects[selectedSubject].info[currentQuestion].answer);
     }
   }
   function setCurrentQuestionHandler() {
     setCurrentQuestion((pre) => pre + 1);
     setResult(null);
+    setCorrectAnswer(null);
+    setSelectedOoption(null);
   }
   function resetGame() {
     setSelectedSubject(null);
     setResult(null);
+    setCorrectAnswer(null);
     setCurrentQuestion(0);
     setPoint(() => 0);
     localStorage.removeItem("currentQuestion");
@@ -100,6 +104,7 @@ function App() {
         setCurrentQuestionHandler,
         point,
         resetGame,
+        correctAnswer,
       }}
     >
       <ThemeContext value={{ theme, changeTheme }}>

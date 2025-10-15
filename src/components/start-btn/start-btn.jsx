@@ -11,6 +11,7 @@ const StartBtn = () => {
   let navigate = useNavigate();
   return (
     <a
+      onPointerEnter={() => alert("hi")}
       onClick={() =>
         selectedSubject === null
           ? toast.error("Select one subject!", {

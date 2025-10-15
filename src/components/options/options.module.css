@@ -4,8 +4,9 @@
   gap: 6px;
   width: 100%;
   list-style: none;
-}
-.li {
-  display: flex;
-  justify-content: center;
+
+  .li {
+    display: flex;
+    justify-content: center;
+  }
 }

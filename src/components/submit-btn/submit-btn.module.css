@@ -19,3 +19,8 @@
   color: var(--light-text);
   background-color: gainsboro;
 }
+@media (max-width: 733px) {
+  .btn {
+    grid-column-start: 1;
+  }
+}

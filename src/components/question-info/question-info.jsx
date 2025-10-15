@@ -7,7 +7,9 @@ const QuestionInfo = () => {
   return (
     <div className={styles.container}>
       <Counter />
-      <Question />
+
+      <Question className={styles.Question} />
+
       <Progress />
     </div>
   );

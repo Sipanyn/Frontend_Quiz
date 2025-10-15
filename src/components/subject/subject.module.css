@@ -7,10 +7,10 @@
   border-radius: 6px;
   overflow: hidden;
   &:hover::before {
-    /* animation-play-state: paused; */
     opacity: 0;
   }
 }
+
 .container::before {
   content: "";
   content: "";
@@ -72,4 +72,12 @@
 .light {
   background-color: gainsboro;
   color: var(--light-text);
+}
+.selected {
+  &::before {
+    opacity: 0;
+  }
+  .subject {
+    border: 1.5px solid rgb(104, 103, 103);
+  }
 }

@@ -1,11 +1,17 @@
 import { useContext } from "react";
 import styles from "./subject.module.css";
 import { ThemeContext } from "styled-components";
+import { SubjectContext } from "../../context/SubjectContext";
 
-const Subject = ({ color, bgColor, icon, title }) => {
+const Subject = ({ color, bgColor, icon, title, index }) => {
   const { theme } = useContext(ThemeContext);
+  const { selectedSubject } = useContext(SubjectContext);
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        selectedSubject === index && styles.selected
+      }`}
+    >
       {/* before */}
       <div
         className={`${styles.subject} ${
@@ -17,14 +23,6 @@ const Subject = ({ color, bgColor, icon, title }) => {
           style={{ color: color, backgroundColor: bgColor }}
           dangerouslySetInnerHTML={{ __html: icon }}
         />
-
-        {/* <svg
-          className={styles.svg_container}
-          style={{ color: `${color}`, backgroundColor: `${bgColor}` }}
-        >
-          <use href={icon} />
-        </svg> */}
-
         <strong className={styles.content}>{title}</strong>
       </div>
     </div>

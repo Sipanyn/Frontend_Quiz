@@ -12,6 +12,7 @@
   margin: 1.5px;
   border: 1.5px solid transparent;
   inline-size: min(400px, 100%);
+  /* width: 400px; */
   &:hover {
     border-color: rgb(104, 103, 103);
   }

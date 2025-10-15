@@ -7,7 +7,7 @@ const Welcome = () => {
         Welcome to the <br />
         <strong>Frontend Quiz!</strong>
       </p>
-      <p className={styles.content}>Pich a subject to get started</p>
+      <p className={styles.content}>Pick a subject to get started</p>
     </div>
   );
 };

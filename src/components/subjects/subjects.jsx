@@ -20,6 +20,7 @@ const Subjects = () => {
               icon={subject.icon}
               color={subject.color}
               bgColor={subject.bgColor}
+              index={index}
             />
           </li>
         );

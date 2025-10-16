@@ -15,6 +15,8 @@ import {
 import Subject from "./components/subject/subject";
 import ProtectedRoute from "./components/protected-route/protected-route";
 import ProtectedRouteQuestions from "./components/protected-route-questions/protected-route-questions";
+import NotFound from "./components/not-found/not-found";
+import NotFoundPage from "./pages/not-found-page/not-found-page";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -132,6 +134,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </ThemeContext>

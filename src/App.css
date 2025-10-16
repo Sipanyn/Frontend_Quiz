@@ -33,4 +33,6 @@ body {
 button,
 a {
   font-family: inherit;
+  text-decoration: none;
+  color: inherit;
 }

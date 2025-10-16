@@ -9,18 +9,38 @@ import {
   setSelectedSubjectLocal,
 } from "../../utils/localStorage";
 import { SubjectContext } from "../../context/SubjectContext";
+import { ThemeContext } from "styled-components";
 
 const QuestionsPage = () => {
-  const { selectedSubject, point, currentQuestion } =
-    useContext(SubjectContext);
-  useEffect(() => {
-    setSelectedSubjectLocal("selectedSubject", selectedSubject);
-    setPointLocal("point", point);
-    setCurrentQuestionLocal("currentQuestion", currentQuestion);
-  }, [selectedSubject, point, currentQuestion]);
+  const { theme } = useContext(ThemeContext);
+  const { subjects, selectedSubject } = useContext(SubjectContext);
+
+  // useEffect(() => {
+  //   setSelectedSubjectLocal("selectedSubject", selectedSubject);
+  //   setPointLocal("point", point);
+  //   setCurrentQuestionLocal("currentQuestion", currentQuestion);
+  // }, [selectedSubject, point, currentQuestion]);
+
+  const subject = subjects?.[selectedSubject] || {};
+  const { icon, title, color, bgColor } = subject;
+
+  // console.log(subject?.icon);
 
   return (
     <div className={styles.container}>
+      <div
+        className={`${styles.subjectHeader} ${
+          theme === "dark" ? styles.dark : styles.light
+        }`}
+      >
+        <div
+          className={styles.svg_container}
+          style={{ color: color, backgroundColor: bgColor }}
+          dangerouslySetInnerHTML={{ __html: icon }}
+        />
+        <strong className={styles.content}>{title}</strong>
+      </div>
+
       <QuestionInfo />
       <Options />
       <SubmitBtn />

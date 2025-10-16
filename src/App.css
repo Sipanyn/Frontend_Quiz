@@ -6,6 +6,14 @@
   padding: 0;
   -webkit-tap-highlight-color: transparent;
 }
+@font-face {
+  font-family: "Arvo";
+  src: url("/fonts/Arvo-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "Arvo";
+}
 
 :root {
   --dark-bg: #2a3b4c;
@@ -21,4 +29,8 @@
 }
 .light {
   background-color: var(--light-bg);
+}
+button,
+a {
+  font-family: inherit;
 }

@@ -1,4 +1,25 @@
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  .subjectHeader {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    .svg_container {
+      height: 40px;
+      width: 40px;
+      padding: 8px;
+      border-radius: 6px;
+    }
+  }
+}
+.dark {
+  color: var(--dark-text);
+}
+.light {
+  color: var(--light-text);
 }

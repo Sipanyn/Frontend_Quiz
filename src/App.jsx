@@ -13,6 +13,8 @@ import {
   getSelectedSubjectLocal,
 } from "./utils/localStorage";
 import Subject from "./components/subject/subject";
+import ProtectedRoute from "./components/protected-route/protected-route";
+import ProtectedRouteQuestions from "./components/protected-route-questions/protected-route-questions";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -38,6 +40,7 @@ function App() {
   });
   const [selectedOption, setSelectedOoption] = useState(null);
   const [result, setResult] = useState(null);
+  const [quizCompleted, setQuizCompleted] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(() => {
     const item = getCurrentQuestionLocal("currentQuestion");
@@ -83,6 +86,7 @@ function App() {
     setResult(null);
     setCorrectAnswer(null);
     setCurrentQuestion(0);
+    setQuizCompleted(false);
     setPoint(() => 0);
     localStorage.removeItem("currentQuestion");
     localStorage.removeItem("point");
@@ -105,14 +109,29 @@ function App() {
         point,
         resetGame,
         correctAnswer,
+        setQuizCompleted,
       }}
     >
       <ThemeContext value={{ theme, changeTheme }}>
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="questions" element={<QuestionsPage />} />
-            <Route path="result" element={<ResultPage />} />
+            <Route
+              path="questions"
+              element={
+                <ProtectedRouteQuestions condition={selectedSubject}>
+                  <QuestionsPage />
+                </ProtectedRouteQuestions>
+              }
+            />
+            <Route
+              path="result"
+              element={
+                <ProtectedRoute condition={quizCompleted}>
+                  <ResultPage />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Routes>
       </ThemeContext>

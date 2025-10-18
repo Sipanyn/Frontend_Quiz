@@ -18,7 +18,12 @@ const Options = () => {
             );
           }
         )}
-      {subjects.length === 0 && <SkeletonElement />}
+      {subjects.length === 0 &&
+        Array(4)
+          .fill()
+          .map((item, index) => {
+            return <SkeletonElement key={index} />;
+          })}
     </ul>
   );
 };

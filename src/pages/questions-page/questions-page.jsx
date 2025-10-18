@@ -3,23 +3,24 @@ import Options from "../../components/options/options";
 import QuestionInfo from "../../components/question-info/question-info";
 import SubmitBtn from "../../components/submit-btn/submit-btn";
 import styles from "./questions-page.module.css";
+import { ThemeContext } from "styled-components";
+import { SubjectContext } from "../../context/SubjectContext";
 import {
   setCurrentQuestionLocal,
   setPointLocal,
   setSelectedSubjectLocal,
 } from "../../utils/localStorage";
-import { SubjectContext } from "../../context/SubjectContext";
-import { ThemeContext } from "styled-components";
 
 const QuestionsPage = () => {
   const { theme } = useContext(ThemeContext);
-  const { subjects, selectedSubject } = useContext(SubjectContext);
+  const { subjects, selectedSubject, currentQuestion, point } =
+    useContext(SubjectContext);
 
-  // useEffect(() => {
-  //   setSelectedSubjectLocal("selectedSubject", selectedSubject);
-  //   setPointLocal("point", point);
-  //   setCurrentQuestionLocal("currentQuestion", currentQuestion);
-  // }, [selectedSubject, point, currentQuestion]);
+  useEffect(() => {
+    setSelectedSubjectLocal("selectedSubject", selectedSubject);
+    setPointLocal("point", point);
+    setCurrentQuestionLocal("currentQuestion", currentQuestion);
+  }, [selectedSubject, point, currentQuestion]);
 
   const subject = subjects?.[selectedSubject] || {};
   const { icon, title, color, bgColor } = subject;

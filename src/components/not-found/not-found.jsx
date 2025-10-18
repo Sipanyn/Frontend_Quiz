@@ -20,12 +20,13 @@ const NotFound = () => {
       <svg className={styles.svg_warning}>
         <use href={"/sprite.svg#not-found_icon"} />
       </svg>
-      <div className={styles.back_home}>
-        <Link to="/">Back to home </Link>
+
+      <Link to="/" className={styles.back_home}>
+        Back to home
         <svg className={styles.svg_back}>
           <use href={"/sprite.svg#back_icon"} />
-        </svg>
-      </div>
+        </svg>{" "}
+      </Link>
     </div>
   );
 };

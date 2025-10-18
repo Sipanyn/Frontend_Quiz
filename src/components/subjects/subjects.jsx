@@ -33,7 +33,6 @@ const Subjects = () => {
           .map((item, index) => {
             return <SkeletonElement key={index} />;
           })}
-      <SkeletonElement />
     </ul>
   );
 };

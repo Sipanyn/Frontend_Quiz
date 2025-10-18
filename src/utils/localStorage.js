@@ -46,3 +46,18 @@ export function getCurrentQuestionLocal(key) {
     console.log(error);
   }
 }
+export function setThemeLocal(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (error) {
+    console.log(error);
+  }
+}
+export function getThemeLocal(key) {
+  try {
+    const item = window.localStorage.getItem(key);
+    return item ? item : undefined;
+  } catch (error) {
+    console.log(error);
+  }
+}

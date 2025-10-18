@@ -11,18 +11,25 @@ import {
   getCurrentQuestionLocal,
   getPointLocal,
   getSelectedSubjectLocal,
+  getThemeLocal,
+  setThemeLocal,
 } from "./utils/localStorage";
-import Subject from "./components/subject/subject";
 import ProtectedRoute from "./components/protected-route/protected-route";
 import ProtectedRouteQuestions from "./components/protected-route-questions/protected-route-questions";
-import NotFound from "./components/not-found/not-found";
+
 import NotFoundPage from "./pages/not-found-page/not-found-page";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    const item = getThemeLocal("theme");
+    return item || "light";
+  });
   useEffect(() => {
-    document.body.classList.add("dark");
+    document.body.classList.add(theme);
   }, []);
+  useEffect(() => {
+    setThemeLocal("theme", theme);
+  }, [theme]);
   function changeTheme() {
     if (theme === "light") {
       setTheme(() => "dark");

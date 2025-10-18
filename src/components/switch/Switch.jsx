@@ -1,14 +1,18 @@
-import React from "react";
 import styled from "styled-components";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 
 const Switch = () => {
-  const { changeTheme } = useContext(ThemeContext);
+  const { changeTheme, theme } = useContext(ThemeContext);
+
   return (
     <StyledWrapper>
       <label className="toggle-switch">
-        <input onChange={changeTheme} type="checkbox" />
+        <input
+          onChange={changeTheme}
+          checked={theme === "dark"}
+          type="checkbox"
+        />
         <div className="toggle-switch-background">
           <div className="toggle-switch-handle" />
         </div>
@@ -36,7 +40,7 @@ const StyledWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: purple;
+    background-color: #e5e6e7;
     border-radius: 20px;
     transition: background-color 0.3s ease-in-out;
   }
@@ -47,7 +51,7 @@ const StyledWrapper = styled.div`
     left: 5px;
     width: 20px;
     height: 20px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
@@ -71,7 +75,7 @@ const StyledWrapper = styled.div`
   }
 
   .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background {
-    background-color: #d0d3d4;
+    background-color: purple;
     // light mode
   }
 

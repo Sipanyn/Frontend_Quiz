@@ -1,0 +1,43 @@
+.skeleton {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border: 1.5px solid transparent;
+  inline-size: min(400px, 100%);
+  border-radius: 6px;
+  gap: 15px;
+  margin: auto;
+  overflow: hidden;
+  background-color: gray;
+  .svg_container {
+    display: block;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  .title {
+    height: 12px;
+    width: 100px;
+    border-radius: 6px;
+  }
+}
+.dark {
+  background-color: var(--dark-bg-box);
+  color: var(--dark-text);
+}
+.light {
+  background-color: gainsboro;
+  color: var(--light-text);
+}
+:global(.dark) .title,
+:global(.dark) .svg_container {
+  background-color: var(--dark-bg);
+}
+
+:global(.light) .title,
+:global(.light) .svg_container {
+  background-color: #f2f2f2;
+}

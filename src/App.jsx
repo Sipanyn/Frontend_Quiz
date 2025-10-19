@@ -96,6 +96,7 @@ function App() {
     setCorrectAnswer(null);
     setCurrentQuestion(0);
     setQuizCompleted(false);
+    setSelectedOoption(null);
     setPoint(() => 0);
     localStorage.removeItem("currentQuestion");
     localStorage.removeItem("point");
